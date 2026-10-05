@@ -319,7 +319,7 @@ The screenshots in `docs/screenshots/` preserve the development and validation p
 
 ### 01 — Amazon Nova Micro Model Selection
 
-`01-bedrock-nova-micro-model-details.png`
+![Amazon Nova Micro model details in Amazon Bedrock](docs/screenshots/01-bedrock-nova-micro-model-details.png)
 
 Documents the Amazon Bedrock model selected for the generation layer.
 
