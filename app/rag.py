@@ -11,11 +11,27 @@ MODEL_ID = "amazon.nova-micro-v1:0"
 
 
 # USER QUESTION
-question = "Which EC2 instance type should SirhurryUp use for its PostgreSQL database?"
+question = "What does CloudFront use to access the private S3 bucket?"
 
 
 # RETRIEVE RELEVANT EVIDENCE
 results = retrieve(question, top_k=3)
+
+MIN_RELEVANCE_SCORE = 0.60
+
+results = [
+    result
+    for result in results
+    if result["score"] >= MIN_RELEVANCE_SCORE
+]
+
+if not results:
+    print("\nINSUFFICIENT RETRIEVAL EVIDENCE")
+    print(
+        "No retrieved documentation met the "
+        f"{MIN_RELEVANCE_SCORE:.2f} relevance threshold."
+    )
+    raise SystemExit
 
 retrieved_context = "\n\n".join(
     result["text"] for result in results
@@ -24,11 +40,15 @@ retrieved_context = "\n\n".join(
 
 # GROUNDING INSTRUCTIONS
 system_prompt = """
-Answer using only the provided SirhurryUp documentation.
+    Answer the user's question using only the provided SirhurryUp documentation.
 
-If the documentation does not contain enough information,
-say: "I don't have enough information in the documentation."
-"""
+    If the documentation directly supports an answer, answer concisely
+    using that evidence. Do not require additional implementation details
+    unless the user asks for them.
+
+    If the documentation does not support an answer,
+    say: "I don't have enough information in the documentation."
+    """
 
 
 # AUGMENT THE QUESTION WITH RETRIEVED CONTEXT
