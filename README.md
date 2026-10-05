@@ -325,43 +325,43 @@ Documents the Amazon Bedrock model selected for the generation layer.
 
 ### 02 — Initial Grounded Response
 
-`02-bedrock-grounded-rag-response.png`
+![Initial grounded RAG response in Amazon Bedrock](docs/screenshots/02-bedrock-grounded-rag-response.png)
 
 Shows the initial Bedrock Playground test using supplied SirhurryUp context to constrain the model's response.
 
 ### 03 — Python to Bedrock Integration
 
-`03-boto3-bedrock-nova-successful-invocation.png`
+![Successful boto3 invocation of Amazon Nova through Bedrock](docs/screenshots/03-boto3-bedrock-nova-successful-invocation.png)
 
 Confirms that the local Python application can successfully invoke Amazon Nova Micro through Amazon Bedrock Runtime using boto3.
 
 ### 04 — Retrieval Quality Failure
 
-`04-semantic-search-retrieval-quality-failure.png`
+![Semantic search retrieval quality failure](docs/screenshots/04-semantic-search-retrieval-quality-failure.png)
 
 Captures an important failure: semantic search was operational, but the highest-ranked result was not necessarily the evidence that best answered the question.
 
 ### 05 — High-Quality Semantic Retrieval
 
-`05-semantic-search-high-quality-retrieval.png`
+![High-quality semantic search retrieval](docs/screenshots/05-semantic-search-high-quality-retrieval.png)
 
 Demonstrates a question for which semantic retrieval strongly identifies the relevant documentation.
 
 ### 06 — End-to-End RAG Pipeline
 
-`06-end-to-end-rag-pipeline-success.png`
+![Successful end-to-end RAG pipeline](docs/screenshots/06-end-to-end-rag-pipeline-success.png)
 
 Shows retrieval, prompt augmentation, Bedrock invocation, and grounded generation operating as one pipeline.
 
 ### 07 — Unsupported Knowledge Test
 
-`07-grounding-unknown-knowledge-test.png`
+![Grounding test with unsupported knowledge](docs/screenshots/07-grounding-unknown-knowledge-test.png)
 
 Tests the system with a company-specific question that the documentation cannot answer. Nova refuses to invent an unsupported recommendation.
 
 ### 08 — Relevance Gate and Grounded Answer
 
-`08-relevance-gate-grounded-answer-success.png`
+![Successful relevance gate and grounded RAG answer](docs/screenshots/08-relevance-gate-grounded-answer-success.png)
 
 Shows the improved pipeline after introducing a minimum relevance threshold and refining the grounding instructions. Relevant evidence passes the gate and Nova generates a concise answer supported by the documentation.
 
